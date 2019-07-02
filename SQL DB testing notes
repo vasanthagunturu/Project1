@@ -19,16 +19,19 @@ Constraints- They are used to limit data type of a table, specified while creati
 Ex:- Not NULL:Null value cant be stored, Unique: all values in col are different, Check: ensures the values satisfy condition,
      default: sets a default value when no value is specified, Index: to create & retrieve data quickly.
 Levels of Constraints - Column level, Table level.
-Difference between SQl & MySQL - SQL is a language to access and manage relational database where as MySQL is a RDBMS backed by Oracle that works on may platforms and supports many storage engines.
+Difference between SQl & MySQL - SQL is a language to access and manage relational database where as MySQL is a RDBMS backed by Oracle that works on may platforms and
+supports many storage engines.
 Unique Key - Uniquely identifies a single row in the table, Null values/multiple values are allowd but not duplicate values 
 Foreign Key - Maintains integrity  and link between various tables in a DB, FK in Child table references PK in Parent table
 Data Integrity - Defines Accuracy, Consistency, Constraints to enforce business rules on data.
 Index- Performance tuning method, allows faster retrieval of records, creates entry for each value- search key
 Types of Index- Unique(Primary Key is a unique index), Clustered (reorders physical order of table), Non clustered (maintains logical order of data)
-Clustered and Non Clustered Index: Used for retrieval of data from DB. Clustered is faster than NC, Clustered alters the way records are stored in rows by Cols that are CI, a table can have only 1 CI/NC many. 
+Clustered and Non Clustered Index: Used for retrieval of data from DB. Clustered is faster than NC, Clustered alters the way records are stored in rows by Cols that are CI, 
+a table can have only 1 CI/NC many. 
 To display current date- GETDATE()/ select GETDATE();
 Normalization- Process of organizing data to avoid duplication & redundancy- efficient, flexibility,faster,easy modification, compact, implement security
-Types of Normalization: 1NF(each table cell should have only single value),2NF(1NF,2 tables, ID added,single colmn PK),3NF(has to be 2NF,3 tables,added ID),BCNF(has to be in 3NF,divides further, only 1 candidate key)
+Types of Normalization: 1NF(each table cell should have only single value),2NF(1NF,2 tables, ID added,single colmn PK),3NF(has to be 2NF,3 tables,added ID),
+BCNF(has to be in 3NF,divides further, only 1 candidate key)
 Denormalization- Its a technique to access data from higher to lower forms of database adds redundancy, combines
   all tables into one, increases performance of infrastructure.
 Entities & Relationships- Attributes that are stored in data/and their links
@@ -73,3 +76,67 @@ First 5 chars of a string- Substring() or Right() statements. Ex: Select SUBSTRI
                            or Select RIGHT(StudentName,5) as Studentname from Student;
 SQL Vs. PL/SQL - SQL allows you to issue a single query to execute single insert/update/delete. 
                  PL SQL -Oracle's  Procedural language to write full prog for multiple operations 
+selects/updates/deletes/inserts.   
+View - Virtual table which consists of a subset of data contained in a table, takes less space to store, can have more than one table combined.
+Views used for - logical snapshots, restricting access to data, making complex queries simple, ensuring data independence, providing diff views for same 
+data			 
+Stored Procedures- Function which consists of many SQL statements to access DB sys. Several SQl statements are consolidated,stored,executed wherever 
+required.				 
+             Saves time and avoid writing code again and again.It is a prepared SQL code that you can save, so the code can be reused over and over again.
+			 We just call it to execute it & can also pass parameters to a stored procedure.
+			 Ex: CREATE PROCEDURE SelectAllCustomers AS SELECT * FROM Customers GO;  EXEC SelectAllCustomers;
+			 
+Adv of SP - create once, store and call for several times, faster execution, reduces network traffic, better security to data.
+Disadv of SP - can be executed only in DB, uses more memory in DB server.
+Types of User defines fns- 3 types: Scalar,Multistatement valued,Inline table valued
+Collation- Rules that determine how data can be sorted & compared. Ex: char data sorted acc. to sequence,case,char width etc.			 
+Collation Sensitivity- Case,Kana,Width,Accent
+Local variables-can be used/exist only inside the function, not by other fns.
+Global variables-accessed throughout the program, cannot be created whenever the fn is called.		 
+Auto Increment- Used while creating a new table, creates Unique no. everytime a new record is inserted.This keyword is required whenever Primary key is used.
+     'Auto increment' used in Oracle, 'Identity' used in SQL server.
+CREATE TABLE Persons (
+    Person_id int NOT NULL AUTO_INCREMENT,   ( Personid int IDENTITY(1,1) PRIMARY KEY,)
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (Personid));
+Datawarehouse - Central repository of data assembled from multiple resources of info. - consolidated, transformed and made available for mining & online 
+processing.			 
+   Subset of datawarehouse is Data Marts.
+Authentication modes in SQL server - Windows mode & Mixed mode - to change go to Start-Programs-MS SQL Server-SQL Enterprise Mngr-Tools menu-server-
+    SQL server configuration properties-security page.
+Stuff & Replace function- Stuff is to overwrite existing char/inserts a string into another String Ex: Stuff (stringexpression,start,length,replacement_chars)
+   Replace- Used to replace existing chars of all occurances Ex: Replace(Stringexpression,searchstring,replacementstring)
+Line Separators - LF, CR, LF CR - to terminate a line
+Short phrase - PK PrimaryKey, NN Not Null, UQ Unique, B Binary, UN Unsigned, ZF fill with Zero, AI Auto incremental, G Generated column, Default expression
+Binary -can be of any type of data - word text pic
+Where Clause used with =,<,>,>=,<=,<>,!=,Between, like,in.   WHERE clause can be combined with AND, OR, and NOT operators.
+  conditions separated by AND are TRUE, OR operator displays a record if any of the conditions separated by OR is TRUE
+ORDER BY: keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+Update-Set : where statement- Be careful when updating records. If you omit the WHERE clause, ALL records will be updated.
+Min & Max: The MIN() function returns the smallest value of the selected column. The MAX() function returns the largest value of the selected column.
+LIKE operator: used in a WHERE clause to search for a specified pattern in a column. % percent sign represents zero, one, or multiple characters, _ underscore 
+for single character
+Wildcards: used to substitute one or more characters in a string.  used with the SQL LIKE operator with WHERE clause
+IN operator: is a shorthand for multiple OR conditions, used to specify multiple values in where clause
+   Ex: SELECT * FROM Customers WHERE Country IN ('Germany', 'France', 'UK') 
+       SELECT * FROM Customers WHERE Country IN (SELECT Country FROM Suppliers) -(selects all customers that are from the same countries as the suppliers)
+UNION operator- used to combine the result-set of two or more SELECT statements. Each SELECT statement within UNION must have the same number of columns & 
+similar data types, 
+       columns must also be in the same order. selects only distinct values by default - To allow duplicate values, use UNION ALL
+GROUP BY statement group rows that have the same values into summary rows, is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the 
+result-set by one or more columns.	  
+HAVING clause - was added to SQL because the WHERE keyword could not be used with aggregate functions  
+ALTER TABLE- statement is used to add, delete, or modify columns in an existing table, is also used to add and drop various constraints on an existing table.   
+BTREE -The Search Tree (B-Tree) Makes the Index Fast, a db needs a second structure to find the entry among the shuffled pages quickly: a balanced search 
+tree—in short - Used for Index and Primary Key
+Schema- in DB gives names of tables and the type of objects a table has - Views, Index(Btree,fulltext,spatial), Function, Base table, Procedure, Trigger	
+Index - The CREATE INDEX statement is used to create indexes in tables.Indexes are used to retrieve data from the database very fast. 
+        The users cannot see the indexes, they are just used to speed up searches/queries.	   
+Auto increment :By default, the starting value for AUTO_INCREMENT is 1, and it will increment by 1 for each new record.To let the AUTO_INCREMENT sequence start with another value, 
+use the SQL statement: ALTER TABLE Persons AUTO_INCREMENT=100;
+View- it's a virtual table based on the result-set of an SQL statement, contains rows and columns, just like a real table. The fields in a view are
+  fields from real tables in the db, can add SQL functions, WHERE, and JOIN statements to a view and present the data as if the data were coming from 1 single table.
+	Ex: CREATE VIEW [Brazil Customers] AS SELECT CustomerName, ContactName FROM Customers WHERE Country = "Brazil";   SELECT * FROM [Brazil Customers];
+	   
