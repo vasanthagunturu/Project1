@@ -1,0 +1,4 @@
+DDL- Data Defenition Language- commands to define schema
+DML - Data Manipulation Language- commands to manipulate
+DCL- Data Control language - Authorize/invoke/permissions/rights
+TCL- Transaction Control Language-rollback
