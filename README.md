@@ -9,6 +9,7 @@ binary- fixed length binary-data/length of n bytes/n=1-8000
 varbinary-variable length binary data/1-8000
 can convert string datatype to binary/varbinary data type -char,varchar,nchar,nvarchar,text,ntext,image
 ntext,text,image- to store large Unicode/nonUnicode/binary data, will be removed in future versions of SQL Server-
+
 Constraints:
 NOT NULL - Ensures that a column cannot have a NULL value
 UNIQUE - Ensures that all values in a column are different
