@@ -2,3 +2,8 @@ DDL- Data Defenition Language- commands to define schema
 DML - Data Manipulation Language- commands to manipulate
 DCL- Data Control language - Authorize/invoke/permissions/rights
 TCL- Transaction Control Language-rollback
+DBMS- its types : Is a software application that interacts with users, applications, DB to cature
+   and analyse data- this data can be CRUD,can be any data type 
+Types of DBMS- Hierarchial,Network,Relational,Object Oriented (HORN)
+Relationship, types - link between entities and tables - 1-1, 1-Many, Many-1, Self referencing(same table, columns have relation)
+RDBMS- Relational Data Base management Systems Ex. SQL Server, Oracle
