@@ -7,3 +7,69 @@ DBMS- its types : Is a software application that interacts with users, applicati
 Types of DBMS- Hierarchial,Network,Relational,Object Oriented (HORN)
 Relationship, types - link between entities and tables - 1-1, 1-Many, Many-1, Self referencing(same table, columns have relation)
 RDBMS- Relational Data Base management Systems Ex. SQL Server, Oracle
+Tables and Fields- Collection of Data in rows and columns/Fields is number of columns
+Joins - to combine rows from 2/more tables based on related column, merges tables and retrieves data
+Types of Joins- Inner(joins matching values in both tables), Full(all records), Left(all left table & matching right table), Right(all right table and matching 
+left table) 
+Inner joins- From/Where clause
+Outer joins - From clause
+Diff between Char & Varchar2 -Both are character datatype but Char(10) stores only 10 characters whereas varchar2(10) can store 1/5/2/6 any length
+Primary Key - attributes to uniquely identify a table. Ex- Employee ID
+Constraints- They are used to limit data type of a table, specified while creating or altering table statement.
+Ex:- Not NULL:Null value cant be stored, Unique: all values in col are different, Check: ensures the values satisfy condition,
+     default: sets a default value when no value is specified, Index: to create & retrieve data quickly.
+Levels of Constraints - Column level, Table level.
+Difference between SQl & MySQL - SQL is a language to access and manage relational database where as MySQL is a RDBMS backed by Oracle that works on may platforms and supports many storage engines.
+Unique Key - Uniquely identifies a single row in the table, Null values/multiple values are allowd but not duplicate values 
+Foreign Key - Maintains integrity  and link between various tables in a DB, FK in Child table references PK in Parent table
+Data Integrity - Defines Accuracy, Consistency, Constraints to enforce business rules on data.
+Index- Performance tuning method, allows faster retrieval of records, creates entry for each value- search key
+Types of Index- Unique(Primary Key is a unique index), Clustered (reorders physical order of table), Non clustered (maintains logical order of data)
+Clustered and Non Clustered Index: Used for retrieval of data from DB. Clustered is faster than NC, Clustered alters the way records are stored in rows by Cols that are CI, a table can have only 1 CI/NC many. 
+To display current date- GETDATE()/ select GETDATE();
+Normalization- Process of organizing data to avoid duplication & redundancy- efficient, flexibility,faster,easy modification, compact, implement security
+Types of Normalization: 1NF(each table cell should have only single value),2NF(1NF,2 tables, ID added,single colmn PK),3NF(has to be 2NF,3 tables,added ID),BCNF(has to be in 3NF,divides further, only 1 candidate key)
+Denormalization- Its a technique to access data from higher to lower forms of database adds redundancy, combines
+  all tables into one, increases performance of infrastructure.
+Entities & Relationships- Attributes that are stored in data/and their links
+Delete - Deletes a row, can rollback,DML command, slower (Syntax-DROP table table_name;)
+Truncate- delete all rows in table,cannot roolback, DDL command, faster than delete(TRUNCATE Table table_name;)
+ACID property of DB - Atomicity(-/+),Consistency,Isolation,Durability
+Trigger- type of Stored procedures defined to execute automatically after data modifications.
+   6 types of triggers: Before Insert, After Insert, Before Update, After Update, Before Delete, After Delete
+Operators in SQL- Logical, Arithematic, Compound, Comparison and Bitwise
+NULL values- represents a value which is unavailable, unknown, assigned, not applicable.
+   It is not zero(number) or blank space(char)
+Insert NULL values in a column- Implicitly by omitting col from col list, Explicitly by specifying "NULL" keyword in values clause.
+Cross Join and Natural Join - Cross join produces cross product of two tables, Natural Join based on columns having same name & datatypes in both tables.
+Subquery- Query inside another query. executed first and result passed on to main query.
+Types of subquery- Correlated - references same table as outer query/ Non correlated query-independent, its output substitutes in outer query.
+To count records in table - select count(*) from table_name;
+Group Fns- work on set of rows and return one result per group - AVG, COUNT, MAX, MIN, SUM, VARIANCE
+Diff between 'BETWEEN'/'IN'- Between to display range of values (select * from table_name where rollno between 10 and 50;)
+                             In refers to containing a specific set of values(select * from table__name where temperatures in (85,86,87);)
+Why are SQl functions used- for calculations, convert data types, modify,format dates & numbers, manipulate output.
+merge statement- conditional update(existing row) ,insert(new row) data into table
+Recursive Stored procedure- calls itself until it reaches some boundary condition., programmers use same set of code many no. of times.
+Clause - Its a condition to limit the result set, filters rows from entire set of results Ex: Where clause, Having clause.
+Having Clause/Where Clause - Having clause is used only inSelect statement, Group By clause/ Where clause is applied to each row before they are part of Group by fn
+Dynamic SQL- Write a query with Parameters, Using EXEC, using sp_executesql		 
+Fetch commom records from 2 tables - INTERSECT Statement Syntax - Select E'eeID from table1 where e'ee salary between 50 and 60 INTERSECT Select 
+  E'eeID from table2 where e'ee age=45
+  Ex: Select StudentID from Students INTERSECT Select StudentID from Exam
+Case Manipulation functions - Lower('string') Upper('string') initcap('string')- returns string with first letter cap and rest lower case. 
+Set Operators- Union, Intersect, Minus
+Alias - Name given to any table/column in WHERE clause, to identify a particular table/column 
+Aggregate & Scalar functions- Aggregate is used from columns for math calc & returns single value Ex. max(), Count()
+                              Scalar returns single value based on input value Ex. UCASE("..")/UPPER(), NOW()
+Fetch alternate records from a table- by fetching even and odd row numbers.
+   Ex: Select ID from(Select rowno, ID from Student)where mod(rowno,2)=0;  -even
+       Select ID from(select rowno, ID from Student)where mod(rowno,2)=1;  -odd
+Pattern matching operator- Like operator - % and _
+  Ex: Select * from table1 where student_name like'A%'; (matches 0 or more char)
+      Select * from table1 where student_name like 'abc_'; (matches exactly 1 char)
+Select Unique records - Distinct keyword. Ex- Select DISTINCT City from Student
+First 5 chars of a string- Substring() or Right() statements. Ex: Select SUBSTRING(StudentName,1,5) as Studentname from Student;
+                           or Select RIGHT(StudentName,5) as Studentname from Student;
+SQL Vs. PL/SQL - SQL allows you to issue a single query to execute single insert/update/delete. 
+                 PL SQL -Oracle's  Procedural language to write full prog for multiple operations 
